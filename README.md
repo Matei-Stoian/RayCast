@@ -1,3 +1,3 @@
 # RayCast
 
-This is a simple RayCast engine writen in vanila javascript.
+This is a simple RayCast engine written in vanilla javascript.
