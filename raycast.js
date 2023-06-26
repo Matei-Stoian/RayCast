@@ -190,13 +190,25 @@ function getRays() {
         return ray;
     });
 }
+function getRaysBig()
+{
+    const initialAngle = player.angle - FOV / 2;
+    const numberOfRays = m.width;
+    const angelStep = FOV / numberOfRays;
+    return Array.from({ length: numberOfRays }, (_, i) => {
+        const ray_angle = initialAngle + i * angelStep;
+        const ray = castRay(ray_angle);
+        return ray;
+    });
+}
 function gameLoop() {
     clearScreen();
     const rays = getRays();
+    const raysbig = getRaysBig();
     //console.log(rays);
     playerMovement();
     drawMiniMap(1, rays);
-    drawScene(rays);
+    drawScene(raysbig);
 }
 
 document.body.addEventListener('keydown', (event) => {
